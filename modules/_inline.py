@@ -41,8 +41,8 @@ upage = 0
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/naya1503/Naya-Userbot"),
-        Button.url("• Support •", url="t.me/kynansupport"),
+        Button.url("• Repo •", url="https://t.me/ItzStarRonny"),
+        Button.url("• Support •", url="t.me/BotsHub1"),
     ],
 ]
 
@@ -146,7 +146,7 @@ async def uptd_plugin(event):
                 help_ += "\n"
     if not help_:
         help_ = f"{file} has no Detailed Help!"
-    help_ += "\n© @KynanSupport"
+    help_ += "\© @BotsHub1"
     data = f"uh_{key}_"
     if index is not None:
         data += f"|{index}"
@@ -176,7 +176,7 @@ async def _(event):
             get_string("upd_5"),
             file="ayra_updates.txt",
             buttons=[
-                [Button.inline("Update Sekarang", data="updatenow")],
+                [Button.inline("Update Now", data="updatenow")],
                 [Button.inline("❮", data="ownr")],
             ],
         )
@@ -185,7 +185,7 @@ async def _(event):
         await event.edit(
             changelog_str,
             buttons=[
-                [Button.inline("Update Sekarang", data="updatenow")],
+                [Button.inline("Update Now", data="updatenow")],
                 [Button.inline("❮", data="ownr")],
             ],
             parse_mode="html",
@@ -329,7 +329,7 @@ async def ibuild(e):
                             _pic,
                             title="Ayra Op",
                             text=txt,
-                            description="@Riizzvbss",
+                            description="@ItzStarRonny",
                             buttons=btn,
                             link_preview=False,
                         )
@@ -345,7 +345,7 @@ async def ibuild(e):
                         title="Ayra Op",
                         type=_type,
                         text=txt,
-                        description="@Riizzvbss",
+                        description="@ItzStarRonny",
                         include_media=include_media,
                         buttons=btn,
                         thumb=cont,
