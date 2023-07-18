@@ -27,11 +27,11 @@ async def _help(ayra):
     chat = await ayra.get_chat()
     if plug:
         try:
-            if plug in HELP["Official"]:
+            if plug in HELP["ᴏғғɪᴄɪᴀʟ"]:
                 output = f"**Plugin** - `{plug}`\n"
                 for i in HELP["Official"][plug]:
                     output += i
-                output += "\n© @KynanSupport"
+                output += "\n© @BotsHub1"
                 await ayra.eor(output)
             else:
                 try:
@@ -39,7 +39,7 @@ async def _help(ayra):
                     for d in LIST[plug]:
                         x += HNDLR + d
                         x += "\n"
-                    x += "\n© @KynanSupport"
+                    x += "\n© @BotsHub1"
                     await ayra.eor(x)
                 except BaseException:
                     file = None
@@ -66,11 +66,11 @@ async def _help(ayra):
                         ):
                             text += f"\nDid you mean `{best_match}`?"
                         return await ayra.eor(text)
-                    output = f"**Perintah** `{plug}` **ditemukan dalam** - `{file}`\n"
+                    output = f"**ᴏʀᴅᴇʀ** `{plug}` **ғᴏᴜɴᴅ ɪɴ** - `{file}`\n"
                     if file in HELP["Official"]:
                         for i in HELP["Official"][file]:
                             output += i
-                    output += "\n© @KynanSupport"
+                    output += "\n© @BotsHub1"
                     await ayra.eor(output)
         except BaseException as er:
             LOGS.exception(er)
