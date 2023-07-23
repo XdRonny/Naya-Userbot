@@ -60,7 +60,7 @@ class Player:
         try:
             await vcClient(
                 functions.phone.CreateGroupCallRequest(
-                    self._chat, title="🎧 Ayra Music 🎶"
+                    self._chat, title="🎧 Ronny Music 🎶"
                 )
             )
         except Exception as e:
@@ -125,12 +125,12 @@ class Player:
             if MSGID_CACHE.get(chat_id):
                 await MSGID_CACHE[chat_id].delete()
                 del MSGID_CACHE[chat_id]
-            text = f"<strong>🎧 Sedang dimainkan #{pos}: <a href={link}>{title}</a>\n⏰ Durasi:</strong> <code>{dur}</code>\n👤 <strong>Diminta oleh:</strong> {from_user}"
+            text = f"<strong>🥀 Is playing #{pos}: <a href={link}>{title}</a>\n✨ Duration:</strong> <code>{dur}</code>\n👤 <strong>Requested by:</strong> {from_user}"
 
             try:
                 xx = await vcClient.send_message(
                     self._current_chat,
-                    f"<strong>🎧 Sedang dimainkan #{pos}: <a href={link}>{title}</a>\n⏰ Durasi:</strong> <code>{dur}</code>\n👤 <strong>Diminta oleh:</strong> {from_user}",
+                    f"<strong>🎧 Is Playling #{pos}: <a href={link}>{title}</a>\n✨ Duration:</strong> <code>{dur}</code>\n👤 <strong>Requested by:</strong> {from_user}",
                     file=thumb,
                     link_preview=False,
                     parse_mode="html",
@@ -150,7 +150,7 @@ class Player:
             del CLIENTS[self._chat]
             await vcClient.send_message(
                 self._current_chat,
-                f"❏ <b>Berhasil Turun Voice Chat</b>\n└ <b>Chat ID:</b> <code>{chat_id}</code>",
+                f"❏ <b>Successfully Down Voice Chat</b>\n└ <b>Chat ID:</b> <code>{chat_id}</code>",
                 parse_mode="html",
             )
         except Exception as er:
@@ -168,7 +168,7 @@ class Player:
         if done:
             await vcClient.send_message(
                 self._current_chat,
-                f"❏ <b>Berhasil Bergabung Voice Chat</b>\n└ <b>Chat ID:</b> <code>{chat_id}</code>",
+                f"❏ <b>Successfully Join Voice Chat</b>\n└ <b>Chat ID:</b> <code>{chat_id}</code>",
                 parse_mode="html",
             )
 
