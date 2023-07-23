@@ -5,13 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 """
-✘ **Bantuan Untuk Voice Tools**
+✘ **Help For Voice Tools**
 
-๏ **Perintah:** `tts id` <balas pesan>
-◉ **Keterangan:** Buat teks ke Voice Google.
+๏ **Order:** `tts id` <reply message>
+◉ **Information:** Compose text to Google Voice.
 
-๏ **Perintah:** `stt id` <balas pesan>
-◉ **Keterangan:** Convert voice ke teks.
+๏ **Order:** `stt id` <reply message>
+◉ **Information:** convert voice to text.
 """
 
 import os
@@ -40,7 +40,7 @@ async def _(event):
         lan, text = input_str.split("|")
     else:
         await event.eor(
-            "Gunakan format : {HNDLR}tts <kode bahasa> <teks/balas ke pesan>."
+            "Use formats : {HNDLR}tts <language code> <text/reply to message>."
         )
         return
     text = text.strip()
@@ -87,7 +87,7 @@ async def _(event):
 async def speec_(e):
     reply = await e.get_reply_message()
     if not (reply and reply.media):
-        return await eod(e, "`Balas ke Audio-File..`")
+        return await eod(e, "`Reply to Audio-File..`")
     # Not Hard Checking File Types
     re = await reply.download_media()
     fn = f"{re}.wav"
