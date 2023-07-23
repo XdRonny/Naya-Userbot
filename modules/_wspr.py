@@ -53,7 +53,7 @@ async def _(e):
             query = int(query)
         logi = await ayra_bot.get_entity(query)
         if not isinstance(logi, types.User):
-            raise ValueError("**Username tidak ditemukan.")
+            raise ValueError("**Username not found.")
     except IndexError:
         sur = e.builder.article(
             title="Usernsme",
@@ -165,7 +165,7 @@ async def _(e):
         if e.sender_id in buddhhu[ids]:
             await e.answer(buddhhu[ids][-1], alert=True)
         else:
-            await e.answer("Bukan Untuk Anda", alert=True)
+            await e.answer("Not For You", alert=True)
     else:
         await e.answer(get_string("wspr_2"), alert=True)
 
