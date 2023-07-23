@@ -8,19 +8,19 @@
 ✘ **Bantuan Untuk VC Tools**
 
 ๏ **Perintah:** `startvc`
-◉ **Keterangan:** Memulai obrolan suara.
+◉ **Keterangan:** Start voice chat.
 
 ๏ **Perintah:** `stopvc`
-◉ **Keterangan:** Mengakhiri obrolan suara.
+◉ **Keterangan:** End voice chat.
 
 ๏ **Perintah:** `vctitle`
-◉ **Keterangan:** Ubah judul obrolan suara.
+◉ **Keterangan:** Change the voice chat title.
 
 ๏ **Perintah:** `joinvc`
-◉ **Keterangan:** Bergabung ke obrolan suara.
+◉ **Keterangan:** Join voice chat.
 
 ๏ **Perintah:** `leavevc`
-◉ **Keterangan:** Meninggalkan ke obrolan suara.
+◉ **Keterangan:** Leave voice chat.
 """
 
 import asyncio
@@ -57,7 +57,7 @@ async def _(e):
         ajg = await e.eor("`Processing...`")
         await e.client(stopvc(await get_call(e)))
         await asyncio.sleep(1)
-        await ajg.edit(f"**❏ Obrolan Suara Diakhiri**\n**└ Chat ID** : `{chat}`")
+        await ajg.edit(f"**❏ Voice Chat Ends**\n**└ Chat ID** : `{chat}`")
     except Exception as ex:
         await ajg.edit(f"`{ex}`")
 
@@ -73,7 +73,7 @@ async def _(e):
         ajg = await e.eor("`Processing...`")
         await e.client(startvc(e.chat_id))
         await asyncio.sleep(1)
-        await ajg.edit(f"**❏ Obrolan Suara Aktif**\n**└ Chat ID** : `{chat}`")
+        await ajg.edit(f"**❏ Active Voice Chat**\n**└ Chat ID** : `{chat}`")
     except Exception as ex:
         await ajg.edit(f"`{ex}`")
 
@@ -86,12 +86,12 @@ async def _(e):
 async def _(event):
     title = event.pattern_match.group(1).strip()
     if not title:
-        return await event.eor("Mohon masukkan judul obrolan suara yang valid.")
+        return await event.eor("Please enter a valid voice chat title.")
     try:
         await event.client(settitle(call=await get_call(event), title=title.strip()))
-        await event.eor(f"❏ **Judul Voice Chat**\n└ `{title}`.")
+        await event.eor(f"❏ **Title Voice Chat**\n└ `{title}`.")
     except Exception as ex:
-        await event.eor(f"Terjadi kesalahan: {ex}")
+        await event.eor(f"There is an error: {ex}")
 
 
 @ayra_cmd(pattern="(j|J)oinvc(?: |$)(.*)")
@@ -109,7 +109,7 @@ async def join_(event):
     if not Nan.group_call.is_connected:
         await Nan.group_call.join(chat)
         await asyncio.sleep(1)
-        await event.eor(f"❏ **Berhasil Bergabung Voice Chat**\n└ **Chat ID:** `{chat}`")
+        await event.eor(f"❏ **Successfully Join Voice Chat**\n└ **Chat ID:** `{chat}`")
         await asyncio.sleep(1)
         await Nan.group_call.set_is_mute(False)
         await asyncio.sleep(1)
@@ -130,7 +130,7 @@ async def leaver(event):
     jing = Player(chat)
     await jing.group_call.leave()
     await asyncio.sleep(1)
-    await event.eor(f"❏ **Berhasil Turun Voice Chat**\n└ **Chat ID:** `{chat}`")
+    await event.eor(f"❏ **Successfully Down Voice Chat**\n└ **Chat ID:** `{chat}`")
     if CLIENTS.get(chat):
         del CLIENTS[chat]
     if VIDEO_ON.get(chat):
